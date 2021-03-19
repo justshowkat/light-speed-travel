@@ -6,19 +6,23 @@ const Home = () => {
     const cardInfo = [
         {
             title: 'Bike',
-            image: './images/Bike.png'
+            image: './images/Bike.png',
+            routePath: '/bike'
         },
         {
             title: 'Car',
-            image: './images/Car.png'
+            image: './images/Car.png',
+            routePath: '/car'
         },
         {
             title: 'Bus',
-            image: './images/Bus.png'
+            image: './images/Bus.png',
+            routePath: '/bus'
         },
         {
             title: 'Train',
-            image: './images/Train.png'
+            image: './images/Train.png',
+            routePath: '/train'
         }
     ]
 
@@ -26,7 +30,7 @@ const Home = () => {
     return (
         <div className='home-Section'>
             {
-                cardInfo.map(data => <FrontPageCard title={data.title} img={data.image}></FrontPageCard>)
+                cardInfo.map(data => <FrontPageCard title={data.title} img={data.image} routePath={data.routePath}></FrontPageCard>)
             }
             
         </div>

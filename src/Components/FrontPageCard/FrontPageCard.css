@@ -1,0 +1,30 @@
+.custom-card{
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    background:rgb(218, 255, 250);
+    box-shadow: 5px 8px 8px rgb(148, 194, 202);
+}
+.custom-card:hover{
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    background:rgb(218, 255, 250);
+    box-shadow: 5px 8px 8px rgb(148, 194, 202);
+    text-decoration: none;
+}
+
+.custom-card img{
+    height: 200px;
+}
+
+.custom-card-title{
+    text-decoration: none;
+    font-size: 30px;
+    color: darkcyan
+}
+.custom-card-title:hover{
+    text-decoration: none;
+    font-size: 30px;
+    color: darkcyan
+}

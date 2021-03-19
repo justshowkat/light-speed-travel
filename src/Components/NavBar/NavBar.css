@@ -1,0 +1,8 @@
+.custom-nav-link{
+    text-decoration: none;
+    color: darkcyan;
+}
+.custom-nav-link:hover{
+    text-decoration: none;
+    color: rgb(0, 114, 95);
+}
