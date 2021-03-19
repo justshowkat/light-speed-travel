@@ -26,7 +26,6 @@ const Home = () => {
         }
     ]
 
-    console.log(cardInfo.map(res => res.image))
     return (
         <div className='home-Section'>
             {
