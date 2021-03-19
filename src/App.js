@@ -7,6 +7,8 @@ import Login from "./Components/LoginPage/Login";
 import Destination from "./Components/Destination/Destination";
 import { useContext, useState } from "react";
 import { userContext } from "./Components/Context/Context";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Profile from "./Components/Profile/Profile";
 
 function App() {
   const [user, setUser] = useState({
@@ -15,23 +17,25 @@ function App() {
     email: '',
     image: ''
   })
+  const [newUser, setNewUser] = useState(false);
+
   const userInfo = useContext(userContext)
   console.log(userInfo)
   return (
     <div className="App ">
-    <userContext.Provider value={[user, setUser]}>
+    <userContext.Provider value={[user, setUser, newUser, setNewUser]}>
       <Router>
       <NavBar />
         <Switch>
-          <Route path="/bike">
-            <Login></Login>
-          </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/destination">
-            <Destination />
-          </Route>
+          <PrivateRoute path='/destination'>
+            <Destination></Destination>
+          </PrivateRoute>
+          <PrivateRoute path='/profile'>
+            <Profile></Profile>
+          </PrivateRoute>
           <Route exact path="/">
             <Home></Home>
           </Route>

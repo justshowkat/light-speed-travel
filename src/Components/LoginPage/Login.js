@@ -1,22 +1,28 @@
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useHistory, useLocation } from "react-router";
 import { userContext } from "../Context/Context";
 import { signInWithGoogle } from "../LoginManager/LoginManager";
 import "./Login.css";
 
 const Login = () => {
-  const [newUser, setNewUser] = useState(false);
-  const [user, setUser] = useContext(userContext)
-  console.log(newUser)
+  const [user, setUser, newUser, setNewUser] = useContext(userContext)
+  console.log(user.isSignedIn)
  
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/" } };
   //handle google sign in
   const handleGoogleSignIn = () => {
     console.log('google sign in clicked')
     signInWithGoogle().then(res => {
       setUser(res)
+      history.replace(from);
     })
+    
   };
   return (
     <div className="login-form-container">

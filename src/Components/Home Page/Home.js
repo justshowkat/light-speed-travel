@@ -1,31 +1,9 @@
 import React from 'react';
+import { cardInfo } from '../FakeData/CardInfo';
 import FrontPageCard from '../FrontPageCard/FrontPageCard';
 import './Home.css'
 
 const Home = () => {
-    const cardInfo = [
-        {
-            title: 'Bike',
-            image: './images/Bike.png',
-            routePath: '/bike'
-        },
-        {
-            title: 'Car',
-            image: './images/Car.png',
-            routePath: '/car'
-        },
-        {
-            title: 'Bus',
-            image: './images/Bus.png',
-            routePath: '/bus'
-        },
-        {
-            title: 'Train',
-            image: './images/Train.png',
-            routePath: '/train'
-        }
-    ]
-
     return (
         <div className='home-Section'>
             {

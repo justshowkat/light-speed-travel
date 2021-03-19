@@ -6,3 +6,8 @@
     text-decoration: none;
     color: rgb(0, 114, 95);
 }
+
+.avatar{
+    height: 30px;
+    border-radius: 50%;
+}
