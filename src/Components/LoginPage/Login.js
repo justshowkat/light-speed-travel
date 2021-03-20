@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useHistory, useLocation } from "react-router";
 import { userContext } from "../Context/Context";
-import { signInWithGoogle } from "../LoginManager/LoginManager";
+import { signInWithFacebook, signInWithGoogle } from "../LoginManager/LoginManager";
 import "./Login.css";
 
 const Login = () => {
@@ -22,7 +22,10 @@ const Login = () => {
       setUser(res)
       history.replace(from);
     })
-    
+  };
+  const handleFacebookSignIn = () => {
+    console.log('facebook sign in clicked')
+    signInWithFacebook()
   };
   return (
     <div className="login-form-container">
@@ -66,6 +69,7 @@ const Login = () => {
           Submit
         </Button>
         <p className="social-button-devider">OR</p>
+        
         <Button
           variant="success"
           className="sign-button with-social"
@@ -73,9 +77,11 @@ const Login = () => {
         >
           <FontAwesomeIcon icon={faGoogle} /> Continue with Google
         </Button>
+
         <Button
           variant="success"
           className="sign-button with-social"
+          onClick={handleFacebookSignIn}
         >
           <FontAwesomeIcon icon={faFacebook} /> Continue With Facebook
         </Button>
