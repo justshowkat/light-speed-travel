@@ -20,7 +20,7 @@ const NavBar = () => {
               
               <Nav.Link><Link className='custom-nav-link' to="/">Home</Link></Nav.Link>
               <Nav.Link><Link className='custom-nav-link' to="/destination">Destination</Link></Nav.Link>
-              <Nav.Link><Link className='custom-nav-link' to="/">Blog</Link></Nav.Link>
+              <Nav.Link><Link className='custom-nav-link' to="/privacy-policy">privacy-policy</Link></Nav.Link>
               {
               user.name && (<Nav.Link><Link className='custom-nav-link' to="/profile"> <img className="avatar" src={user.image} alt="avatar" srcset=""/> {user.name}</Link></Nav.Link>)
             }
