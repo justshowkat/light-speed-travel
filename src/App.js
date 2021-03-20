@@ -16,6 +16,8 @@ function App() {
     isSignedIn: false,
     name:'',
     email: '',
+    password: '',
+    confirmPassword: '',
     image: ''
   })
   const [newUser, setNewUser] = useState(false);

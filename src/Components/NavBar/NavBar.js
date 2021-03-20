@@ -22,11 +22,11 @@ const NavBar = () => {
               <Nav.Link><Link className='custom-nav-link' to="/destination">Destination</Link></Nav.Link>
               <Nav.Link><Link className='custom-nav-link' to="/privacy-policy">privacy-policy</Link></Nav.Link>
               {
-              user.name && (<Nav.Link><Link className='custom-nav-link' to="/profile"> <img className="avatar" src={user.image} alt="avatar" srcset=""/> {user.name}</Link></Nav.Link>)
+              user.name ? (<Nav.Link><Link className='custom-nav-link' to="/profile"> <img className="avatar" src={user.image} alt="avatar" srcset=""/> {user.name}</Link></Nav.Link>) : (<Nav.Link><Link className='custom-nav-link' to="/profile"> {user.email}</Link></Nav.Link>)
             }
             </Nav>
             {
-              user.name ? (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Log Out</Button></Link>) : (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Login</Button></Link>)
+              user.name || user.email ? (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Log Out</Button></Link>) : (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Login</Button></Link>)
             }
             
             

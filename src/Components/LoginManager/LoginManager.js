@@ -7,7 +7,6 @@ if (!firebase.apps.length) {
 } else {
   firebase.app(); // if already initialized, use that one
 }
-
 export const signInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -57,3 +56,40 @@ export const signInWithFacebook = () => {
       console.log(errorCode, errorMessage, email, credential)
     });
 };
+
+export const crateWithEmailPassword = (email, password) => {
+  
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+    
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode, errorMessage)
+  });
+}
+
+export const loginWithMailAndPassword = (email, password) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    const signedInUser = {
+      isSignedIn: true,
+      name: user.displayName,
+      email: user.email,
+      image: user.photoURL,
+    };
+    return signedInUser;
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage, errorCode)
+  });
+}
