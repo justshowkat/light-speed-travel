@@ -9,6 +9,7 @@ import { useContext, useState } from "react";
 import { userContext } from "./Components/Context/Context";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Profile from "./Components/Profile/Profile";
+import PrivecyPolicy from "./Components/PrivecyPolicy/PrivecyPolicy";
 
 function App() {
   const [user, setUser] = useState({
@@ -29,6 +30,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/privacy-policy">
+            <PrivecyPolicy></PrivecyPolicy>
           </Route>
           <PrivateRoute path='/destination'>
             <Destination></Destination>
