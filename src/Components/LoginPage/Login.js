@@ -26,6 +26,7 @@ const Login = () => {
     signInWithFacebook()
     //i have joined meet session. however they cannot solve the problem(facebook in development on), and facebook is not returning me anything. so they advice me to keep it like this. 
   };
+  
   // this functions will execute when field is changed (onBlur)
   //for mail field
   const handleEmail = (e) => {
@@ -37,23 +38,23 @@ const Login = () => {
     e.target.value.length > 6 ? user.password = e.target.value : alert('password must be bigger than 6 word')
   }
 
+  // check if the previous password is matched with the second one.
   const handleConfirmPassword = (e) => {
     user.confirmPassword = e.target.value
     const isValid = (user.confirmPassword === user.password)
     isValid === false && (user.password = ''  && alert(`password didn't match`))
-    console.log(user, isValid)
   }
 
+  //execute when clicked on login button
   const handleLoginButton =(e) =>{
-
+  
     const mail = document.getElementById('email').value
     const password = document.getElementById('password').value
 
     user.email = mail
     user.password = password
 
-    console.log(mail, password)
-
+    //only execute when mail and password both are true... 
     mail && password ? (
       loginWithMailAndPassword(user.email, user.password).then(res => {
         if (!res.errorCode) {
@@ -62,18 +63,19 @@ const Login = () => {
         } else {
           alert(res.errorMessage)
         }
-        // console.log(res.errorCode? true : false)
-        
       })
     ): alert('please enter a valid user name/email and password')
     e.preventDefault()
   }
+
+  //it creates new user only.
   const handleRegistrationButton =(e) =>{
     const {name, email, password, confirmPassword} = user
 
     if(name && email && password && confirmPassword){
       crateWithEmailPassword(email, password, name).then(res => {
         console.log('registration response console', res)
+        //checks if there's an error, if not then proceed to the next step, otherwise show an alert with the error msg
         if (!res.errorCode) {
           setUser({
             isSignedIn: true,
