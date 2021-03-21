@@ -15,6 +15,6 @@ feel free to create your own account with google and using registration form.
 
 Oh, by the way. sign in with facebook doesn't work... there is some kind of problem with developer mode. i joined the meet session and they advised me to skip it. so yeah, it doesn't work because of facebook. not because of me... 
 
-## So to run this project on your machine run the following command on your terminal: 
+## So to open this project inside your local machine run the following command on your terminal: 
 ### `npm install`
 ### `npm start`
