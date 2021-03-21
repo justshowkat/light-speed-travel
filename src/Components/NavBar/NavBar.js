@@ -37,7 +37,7 @@ const NavBar = () => {
             }
             </Nav>
             {
-              user.name || user.email ? (<Link onClick={handleLogOut} className='custom-nav-link'><Button variant="outline-success">Log Out</Button></Link>) : (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Login</Button></Link>)
+              user.name || user.email ? (<Link onClick={handleLogOut} className='custom-nav-link' to="/"><Button variant="outline-success">Log Out</Button></Link>) : (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Login</Button></Link>)
             }
             
             
