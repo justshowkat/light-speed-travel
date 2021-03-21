@@ -11,16 +11,23 @@ const Destination = () => {
   const [location, setLocation] = useState({
     from: "",
     drop: "",
+    date: ''
   });
 
   const handleSubmit = (e) => {
     const start = document.getElementById("from").value;
     const end = document.getElementById("drop").value;
-
-    setLocation({
-      from: start,
-      drop: end,
-    });
+    const date = document.getElementById("journey-date").value;
+    if (start && end && date) {
+      setLocation({
+        from: start,
+        drop: end,
+        date: date
+      });
+    } else {
+      alert(`please fill all of the field to purchase your ticket.`)
+    }
+    
     e.preventDefault();
   };
   return (
@@ -36,7 +43,11 @@ const Destination = () => {
             <Form.Label>Drop zone</Form.Label>
             <Form.Control id="drop" placeholder="ex: Banani" required />
           </Form.Group>
-
+          <Form.Group>
+            <Form.Label>Journey Date</Form.Label>
+            <input type="date" className="journey-date" id='journey-date' name="birthday" />
+          </Form.Group>
+          
           <Button
             onClick={handleSubmit}
             className="destination-button"
@@ -49,6 +60,7 @@ const Destination = () => {
         {location.from && location.drop ? (<Card className='custom-destination-card'>
           <Card.Body>
             <Card.Title> <strong>{location.from ? `Pick: ${location.from}` : 'Pick'}</strong> & <strong>{location.drop? `Drop: ${location.drop}` : 'Drop'}</strong> </Card.Title>
+            <Card.Title>{location.date} </Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
             {ride === 'car' && cars.map(data => <ListGroupItem><Vehicle vehicleImage={data.vehicleImage} vehicleType={data.vehicleType} seats={data.seats} price={data.price} /> </ListGroupItem>)}

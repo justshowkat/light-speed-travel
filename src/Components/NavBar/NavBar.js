@@ -8,6 +8,17 @@ import './NavBar.css'
 const NavBar = () => {
   const [user, setUser] = useContext(userContext)
   // console.log(userInfo)
+  const handleLogOut = () => {
+    setUser({
+      isSignedIn: false,
+      name:'',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      image: ''
+    })
+    window.location.reload(true);
+  }
   return (
     <Navbar bg="light" expand="lg">
       <div className="container">
@@ -26,7 +37,7 @@ const NavBar = () => {
             }
             </Nav>
             {
-              user.name || user.email ? (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Log Out</Button></Link>) : (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Login</Button></Link>)
+              user.name || user.email ? (<Link onClick={handleLogOut} className='custom-nav-link'><Button variant="outline-success">Log Out</Button></Link>) : (<Link className='custom-nav-link' to="/login"><Button variant="outline-success">Login</Button></Link>)
             }
             
             

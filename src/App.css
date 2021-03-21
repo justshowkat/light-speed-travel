@@ -9,3 +9,11 @@
   width: 100%;
 }
 
+
+@media screen and (max-width: 600px) {
+  .App {
+    background-image: url('./img/bg1.jpg');
+    background-size:0%;
+    background-position: fixed ;
+  }
+}
