@@ -3,6 +3,7 @@ import { Button, Card, Form, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useParams } from "react-router";
 import { bus, cars, bikes, trains} from "../FakeData/VehiclesData";
 import "./Destination.css";
+import GoogleMapComponent from "./GoogleMap/GoogleMap";
 import Vehicle from "./Vehicle/Vehicle";
 
 const Destination = () => {
@@ -60,7 +61,7 @@ const Destination = () => {
       <div className="column2">
         <img src="./images/Map.png" alt="" srcset="" />
         <div id='map-box'>
-        
+          <GoogleMapComponent></GoogleMapComponent>
         </div>
       </div>
     </div>
