@@ -45,12 +45,16 @@ const Login = () => {
   }
 
   const handleLoginButton =(e) =>{
-    let mailValid = true
-    user.email ? mailValid = true : mailValid = false
-    let passValid = true
-    user.password ? passValid = true : passValid = false
 
-    mailValid && passValid ? (
+    const mail = document.getElementById('email').value
+    const password = document.getElementById('password').value
+
+    user.email = mail
+    user.password = password
+
+    console.log(mail, password)
+
+    mail && password ? (
       loginWithMailAndPassword(user.email, user.password).then(res => {
         if (!res.errorCode) {
           setUser(res)
@@ -108,13 +112,13 @@ const Login = () => {
         )}
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control onBlur={handleEmail} type="email" placeholder="Enter email" />
+          <Form.Control id='email' onBlur={handleEmail} type="email" placeholder="Enter email" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" onBlur={handlePassword} placeholder="Password" />
+          <Form.Control id='password' type="password" onBlur={handlePassword} placeholder="Password" />
         </Form.Group>
         {newUser && (
           <Form.Group controlId="formBasicPassword">

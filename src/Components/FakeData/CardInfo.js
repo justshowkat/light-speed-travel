@@ -1,22 +1,22 @@
 export const cardInfo = [
     {
         title: 'Bike',
-        image: './images/Bike.png',
+        image: 'https://i.ibb.co/7JCZz8d/Bike.png',
         routePath: 'bike'
     },
     {
         title: 'Car',
-        image: './images/Car.png',
+        image: 'https://i.ibb.co/VQdjQ6s/Car.png',
         routePath: 'car'
     },
     {
         title: 'Bus',
-        image: './images/Bus.png',
+        image: 'https://i.ibb.co/F5fTwcP/Bus.png',
         routePath: 'bus'
     },
     {
         title: 'Train',
-        image: './images/Train.png',
+        image: 'https://i.ibb.co/hDpP7NP/Train.png',
         routePath: 'train'
     }
 ]
