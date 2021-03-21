@@ -7,6 +7,8 @@ if (!firebase.apps.length) {
 } else {
   firebase.app(); // if already initialized, use that one
 }
+
+//create and login user with google auth
 export const signInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -36,6 +38,7 @@ export const signInWithGoogle = () => {
     });
 };
 
+// create and signin user with facebook auth
 export const signInWithFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase
@@ -57,6 +60,7 @@ export const signInWithFacebook = () => {
     });
 };
 
+//create user with email and password
 export const crateWithEmailPassword = (email, password) => {
   return firebase
     .auth()
@@ -76,6 +80,7 @@ export const crateWithEmailPassword = (email, password) => {
     });
 };
 
+// handles the login with mail and password
 export const loginWithMailAndPassword = (email, password) => {
   return firebase
     .auth()
