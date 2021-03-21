@@ -8,16 +8,19 @@ import Vehicle from "./Vehicle/Vehicle";
 
 const Destination = () => {
   let { ride } = useParams()
+  //this state receive the location from the form and update it to ticket section.
   const [location, setLocation] = useState({
     from: "",
     drop: "",
     date: ''
   });
 
+  //button onclick
   const handleSubmit = (e) => {
     const start = document.getElementById("from").value;
     const end = document.getElementById("drop").value;
     const date = document.getElementById("journey-date").value;
+    //checks if all the value exist
     if (start && end && date) {
       setLocation({
         from: start,
