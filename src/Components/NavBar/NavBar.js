@@ -7,7 +7,8 @@ import './NavBar.css'
 
 const NavBar = () => {
   const [user, setUser] = useContext(userContext)
-  // console.log(userInfo)
+  
+  //logout the user from the web app
   const handleLogOut = () => {
     setUser({
       isSignedIn: false,
