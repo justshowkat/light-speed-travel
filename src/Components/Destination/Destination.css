@@ -6,15 +6,35 @@
     justify-content: space-evenly;
     margin-top: 20px;
 }
-.destination-form{
+.column1{
+    flex-basis: 35%;
     margin: 20px;
+}
+.destination-form{
     padding: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
     background-color: rgb(221, 255, 252);
     text-align: start;
 }
 .destination-button{
     width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: darkcyan;
+}
+.destination-button:hover{
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 255, 200);
+}
+.custom-destination-card{
+    width: 100%;
+    color: rgb(0, 0, 0);
+    background-color: rgb(221, 255, 252);
+    border-radius: 10px;
+    border: none;
+}
+.column2{
+    flex-basis: 60%;
 }
 .column2 img{
     width: 100%;

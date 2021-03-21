@@ -21,12 +21,13 @@ function App() {
     image: ''
   })
   const [newUser, setNewUser] = useState(false);
+  const [typeOfVehicle, setTypeOfVehicle] = useState('');
 
   const userInfo = useContext(userContext)
   console.log(userInfo)
   return (
     <div className="App ">
-    <userContext.Provider value={[user, setUser, newUser, setNewUser]}>
+    <userContext.Provider value={[user, setUser, newUser, setNewUser, typeOfVehicle, setTypeOfVehicle]}>
       <Router>
       <NavBar />
         <Switch>
@@ -36,7 +37,10 @@ function App() {
           <Route path="/privacy-policy">
             <PrivecyPolicy></PrivecyPolicy>
           </Route>
-          <PrivateRoute path='/destination'>
+          <PrivateRoute path='/destination/:ride'>
+            <Destination></Destination>
+          </PrivateRoute>
+          <PrivateRoute exact path='/destination/'>
             <Destination></Destination>
           </PrivateRoute>
           <PrivateRoute path='/profile'>

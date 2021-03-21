@@ -59,18 +59,19 @@ export const signInWithFacebook = () => {
 
 export const crateWithEmailPassword = (email, password) => {
   
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+  return firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     console.log(user)
-    
+    return user
     // ...
   })
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(errorCode, errorMessage)
+    return({errorCode, errorMessage})
   });
 }
 
@@ -91,5 +92,6 @@ export const loginWithMailAndPassword = (email, password) => {
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(errorMessage, errorCode)
+    return ({errorCode, errorMessage})
   });
 }

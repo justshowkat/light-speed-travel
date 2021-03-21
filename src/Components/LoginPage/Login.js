@@ -9,7 +9,6 @@ import "./Login.css";
 
 const Login = () => {
   const [user, setUser, newUser, setNewUser] = useContext(userContext)
-  console.log(user.isSignedIn)
  
   let history = useHistory();
   let location = useLocation();
@@ -17,23 +16,23 @@ const Login = () => {
   let { from } = location.state || { from: { pathname: "/" } };
   //handle google sign in
   const handleGoogleSignIn = () => {
-    console.log('google sign in clicked')
     signInWithGoogle().then(res => {
       setUser(res)
-      console.log(res)
       history.replace(from);
     })
   };
+  //handle facebook sign in
   const handleFacebookSignIn = () => {
-    console.log('facebook sign in clicked')
     signInWithFacebook()
     //i have joined meet session. however they cannot solve the problem(facebook in development on), and facebook is not returning me anything. so they advice me to keep it like this. 
   };
-
+  // this functions will execute when field is changed (onBlur)
+  //for mail field
   const handleEmail = (e) => {
     const re = /\S+@\S+\.\S+/;
     !re.test(e.target.value) ? alert('please insert a valid email') : user.email = e.target.value
   }
+  //for password
   const handlePassword = (e) => {
     e.target.value.length > 6 ? user.password = e.target.value : alert('password must be bigger than 6 word')
   }
@@ -51,28 +50,45 @@ const Login = () => {
     let passValid = true
     user.password ? passValid = true : passValid = false
 
-    // const isValid = mailValid && passValid
-
     mailValid && passValid ? (
       loginWithMailAndPassword(user.email, user.password).then(res => {
-        console.log(res)
-        setUser(res)
-        history.replace(from)
+        if (!res.errorCode) {
+          setUser(res)
+          history.replace(from)
+        } else {
+          alert(res.errorMessage)
+        }
+        // console.log(res.errorCode? true : false)
+        
       })
     ): alert('please enter a valid user name/email and password')
-    // console.log(mailValid, passValid, isValid)
     e.preventDefault()
   }
   const handleRegistrationButton =(e) =>{
     const {name, email, password, confirmPassword} = user
 
     if(name && email && password && confirmPassword){
-      console.log(name, email, password, confirmPassword)
-      crateWithEmailPassword(email, password, name)
-      history.replace(from)
+      crateWithEmailPassword(email, password, name).then(res => {
+        console.log('registration response console', res)
+        if (!res.errorCode) {
+          setUser({
+            isSignedIn: true,
+            name:'',
+            email: res.email,
+            password: '',
+            confirmPassword: '',
+            image: ''
+          })
+          history.replace(from)
+        } else {
+          alert(res.errorMessage)
+        }
+        
+      })
     }else {
-      alert(`empty field cannot be submitted`)
+      alert(`Please Double check your user mail and password or retype it again`)
     }
+
     e.preventDefault()
   }
   return (

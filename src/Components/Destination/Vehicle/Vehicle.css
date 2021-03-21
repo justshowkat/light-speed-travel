@@ -1,0 +1,11 @@
+.vehicle-card{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.vehicle-card img{
+    width: 15%;
+}
