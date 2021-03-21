@@ -1,4 +1,4 @@
-# Welcome Light Speed Travel
+# Welcome to Light Speed Travel
 ### `Live site: https://light-speed-travel-697ae5.netlify.app/`
 
 I created this project with reactjs, bootstrap, font awesome and tons of other npm packages. 
